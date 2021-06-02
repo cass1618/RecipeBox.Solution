@@ -1,0 +1,21 @@
+@using RecipeBox.Models;
+@model IEnumerable<RecipeBox.Models.Ingredient>
+
+<h1> Items for @User.Identity.Name </h1>
+
+@if (Model.Any())
+{
+  <ul>
+  @foreach (Ingredient ingredient in Model)
+  {
+    <li>@Html.ActionLink()$"{ingredient.Description}", "Details", new  {id = ingredient.IngredientId}</li>
+  }
+  </ul>
+}
+else
+{
+   <h3> No ingredients have been added </h3>
+}
+
+<p>@Html.ActionLink("Add new ingredient", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

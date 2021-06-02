@@ -9,6 +9,8 @@ namespace RecipeBox.Models
       this.JoinEntities = new HashSet<CategoryRecipe>();
     }
 
+    public virtual ApplicationUser User { get; set; }
+
     public int CategoryId { get; set; }
     public string CategoryName { get; set; }
     public virtual ICollection<CategoryRecipe> JoinEntities { get; set; }
