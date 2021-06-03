@@ -9,4 +9,3 @@ namespace RecipeBox.Models
     public virtual Category Category { get; set; }
   }
 }
-

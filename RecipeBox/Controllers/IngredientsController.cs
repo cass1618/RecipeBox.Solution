@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using RecipeBox.Models;
+using System;
+using System.Collections.Generic;
 
 namespace RecipeBox.Controllers
 {
-  [Authorize]
   public class IngredientsController : Controller
   {
     private readonly RecipeBoxContext _db;
@@ -22,12 +23,16 @@ namespace RecipeBox.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    // public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userIngredients = _db.Ingredients.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userIngredients);
+      List<Ingredient> ingredients = _db.Ingredients.ToList();
+      return View(ingredients);
+
+      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      // var currentUser = await _userManager.FindByIdAsync(userId);
+      // var userIngredients = _db.Ingredients.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      // return View(userIngredients);
     }
 
     public ActionResult Create()
@@ -36,11 +41,12 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Ingredient ingredient)
+    // public async Task<ActionResult> 
+    public ActionResult Create(Ingredient ingredient)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      ingredient.User = currentUser;
+      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      // var currentUser = await _userManager.FindByIdAsync(userId);
+      // ingredient.User = currentUser;
       _db.Ingredients.Add(ingredient);
       _db.SaveChanges();
       return RedirectToAction("Index");
