@@ -12,6 +12,9 @@ namespace RecipeBox.Models
 
     public virtual ApplicationUser User { get; set; }
 
+    [Display(Name = "Task Completed")]
+
+    
     public int RecipeId { get; set; }
     public string RecipeName { get; set; }
     public int Rating { get; set; }

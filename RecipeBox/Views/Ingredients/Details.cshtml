@@ -1,8 +1,8 @@
-@model RecipeBox.Models.Ingredient
+@model RecipeBox.Models.Ingredient;
 
 <h1>Recipes for Ingredient</h1>
 
-if(@Model.JoinEntities.Count == 0)
+@if(@Model.JoinEntities.Count == 0)
 {
   <h3>This ingredient is not used in any recipe</h3>
 }

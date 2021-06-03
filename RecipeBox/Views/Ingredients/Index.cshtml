@@ -8,7 +8,7 @@
   <ul>
   @foreach (Ingredient ingredient in Model)
   {
-    <li>@Html.ActionLink()$"{ingredient.Description}", "Details", new  {id = ingredient.IngredientId}</li>
+    <li>@Html.ActionLink($"{ingredient.Description}", "Details", new  {id = ingredient.IngredientId})</li>
   }
   </ul>
 }

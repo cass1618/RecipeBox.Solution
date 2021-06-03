@@ -16,15 +16,11 @@
             aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-              <li class="nav-item">
+          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between links">
                   @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
-              </li>
-              <li class="nav-item">
+                  &nbsp;&nbsp;&nbsp;&nbsp;
                   @Html.ActionLink("Recipes", "Index", "Recipes", null, new { @class = "nav-link" })
-              </li>
-              <li class="nav-item">
+                  &nbsp;&nbsp;&nbsp;&nbsp;
                   @Html.ActionLink("Ingredients", "Index", "Ingredients", null, new { @class = "nav-link" })
               </li>
             </ul>

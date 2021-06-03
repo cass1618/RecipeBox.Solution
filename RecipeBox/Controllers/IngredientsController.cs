@@ -30,6 +30,11 @@ namespace RecipeBox.Controllers
       return View(userIngredients);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
     [HttpPost]
     public async Task<ActionResult> Create(Ingredient ingredient)
     {
