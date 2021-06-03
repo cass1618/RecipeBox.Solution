@@ -41,7 +41,7 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-    // public async Task<ActionResult> 
+    // public async Task<ActionResult>
     public ActionResult Create(Ingredient ingredient)
     {
       // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -51,7 +51,7 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-  
+
     public ActionResult Details(int id)
     {
       var thisIngredient = _db.Ingredients
@@ -61,7 +61,6 @@ namespace RecipeBox.Controllers
       return View(thisIngredient);
     }
 
-    
     public ActionResult Edit(int id)
     {
       var thisIngredient = _db.Ingredients.FirstOrDefault(ingredient => ingredient.IngredientId == id);

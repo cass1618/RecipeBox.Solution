@@ -5,10 +5,11 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)</h3>
 <h4>@Model.StarRating()</h4>
+<p>@Model.Instructions</p>
 
 @if (@Model.JoinEntities.Count == 0)
 {
-  <p>This recipe does not belong to any categories</p>
+  <p>This recipe does not belong to any cate gories</p>
 }
 else
 {
@@ -26,7 +27,8 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Add Tag", "AddCategory")</p>
+<p>@Html.ActionLink("Add Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Add Category", "AddCategory", new { id = Model.RecipeId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
 <p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>

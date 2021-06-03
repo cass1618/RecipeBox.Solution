@@ -103,6 +103,24 @@ namespace RecipeBox.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddIngredient(int id)
+    {
+      var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
+      ViewBag.IngredientId = new SelectList(_db.Ingredients, "IngredientId", "Description");
+      return View(thisRecipe);
+    }
+
+    [HttpPost]
+    public ActionResult AddIngredient(Recipe recipe, int IngredientId)
+    {
+      if (IngredientId != 0)
+      {
+        _db.IngredientRecipe.Add(new IngredientRecipe() { IngredientId = IngredientId, RecipeId = recipe.RecipeId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
     public ActionResult Delete(int id)
     {
       var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
